@@ -4,6 +4,11 @@
  import lightTheme from "./themes/light.json";
  import darkTheme from "./themes/dark.json";
 
+ import Header from "components/Header";
+ import Footer from "components/Footer";
+
+ 
+
 
 
 export default function Layout ({children}) {
@@ -16,15 +21,23 @@ export default function Layout ({children}) {
     const[ isLight, setIsLight] = useState(true);
   return (
  <ThemeProvider theme={isLight ? lightTheme : darkTheme}> 
-    <div>
+    <Wrapper>
      <GlobalStyle/>
+      <Header isLight={isLight} handleToggletheme={handleToggletheme}/>
+      <Main/>
       {children}
-      <button
-      onClick={handleToggletheme}>
-       Switch to {isLight ? " light" : "dark"} theme</button>
-    </div>
+      <Footer/>
+    </Wrapper>
  </ThemeProvider>  
   )
 }
 
-const wrapper= styled.div``;
+const Wrapper= styled.div``;
+
+const Main = styled.div`
+ min-height: calc(100vh - 192px);
+ width: 96px;
+ max-width: 1240px;
+ margin: auto;
+ margin-top: 32px;
+`;
