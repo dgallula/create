@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function index () {
+export default function footer() {
   return (
     <Wrapper><h1>footer</h1></Wrapper>
 
