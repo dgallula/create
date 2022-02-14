@@ -7,7 +7,7 @@ export default function footer() {
   )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
 height: 80px;
  display:flex;
  justify-content: center;

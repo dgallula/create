@@ -2,18 +2,23 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export default function header ({isLight,handleToggletheme}) {
+    
+  
   return (
     <Wrapper>
         <h1>header</h1>
         <nav>
-          <Link to={"/"}>Home</Link>     
-         <Link to={"/About"}>About</Link>
+          <Link to={"/"}> 
+            <MenuEl>Home</MenuEl>    
+          </Link>
+          <Link to={"/About"}> 
+            <MenuEl>About</MenuEl>    
+          </Link>
         </nav>
         <button
       onClick={handleToggletheme}>
-       Switch to {isLight ? " light" : "dark"} theme</button>
+       Switch to {isLight ? " dark" : "light"} theme</button>
  </Wrapper>
-
   )
 }
 
@@ -32,7 +37,17 @@ const Wrapper = styled.div`
    margin-right:12px; 
  }   
 
+ 
 
- }
+`;
+
+const MenuEl = styled.p`
+display:flex;
+padding-bottom: 2px;
+border-bottom: solid 2px;
+& :hover {
+  background-color: gold;
+  border-bottom: solid 2px 
+}
 
 `;

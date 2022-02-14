@@ -6,6 +6,7 @@
 
  import Header from "components/Header";
  import Footer from "components/Footer";
+ import Home from "components/Home";
 
  
 
@@ -24,7 +25,7 @@ export default function Layout ({children}) {
     <Wrapper>
      <GlobalStyle/>
       <Header isLight={isLight} handleToggletheme={handleToggletheme}/>
-      <Main/>
+      <Home/>
       {children}
       <Footer/>
     </Wrapper>
