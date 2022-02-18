@@ -35,7 +35,6 @@ const Grid = styled.div`
 display: grid;
 width: 400px;
 height: 400px;
-border: black solid 2px;
 grid-template-columns: 1fr 1fr;
 column-gap: 12px;
 row-gap: 12px;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export default function header ({isLight,handleToggletheme}) {
+export default function header () {
     
   
   return (
@@ -15,9 +15,6 @@ export default function header ({isLight,handleToggletheme}) {
             <MenuEl>About</MenuEl>    
           </Link>
         </nav>
-        <button
-      onClick={handleToggletheme}>
-       Switch to {isLight ? " dark" : "light"} theme</button>
  </Wrapper>
   )
 }
@@ -27,14 +24,15 @@ const Wrapper = styled.div`
  display:flex;
  justify-content: space-between;
  padding: 0 24px;
+ border: solid 1px;
  align-items: center;
- border-bottom: solid 1px;
  & a{
    text-decoration: none;
    color: inherit;
   }
- & a:first child {
-   margin-right:12px; 
+ & a:first-child {
+   margin-right:16px; 
+   
  }   
 
  
@@ -42,9 +40,10 @@ const Wrapper = styled.div`
 `;
 
 const MenuEl = styled.p`
+
+font-size:18px;
 display:flex;
 padding-bottom: 2px;
-border-bottom: solid 2px;
 & :hover {
   background-color: gold;
   border-bottom: solid 2px 

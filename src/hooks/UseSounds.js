@@ -83,7 +83,11 @@ export default function UseSounds() {
         }
     })
 
-
+     function handleSampleChange(note,file) {
+       let fileURL = URL.createObjectURL(file) ;
+       let buffer = new Tone.Buffer(fileURL);
+       mySampler.current.add(note,buffer,()=>alert('sample succesfully changed'));
+     }
 
     const buttonsList=
       [
@@ -92,6 +96,7 @@ export default function UseSounds() {
          soundPlay: ()=> soundPlay("C4"),
          isPlayed: isLoop24Played,
          id: 'loop24',
+         
         },    
 
         {
@@ -104,7 +109,7 @@ export default function UseSounds() {
 
         {
         soundPlay: ()=> soundPlay("D#4"),
-        isPlayed: isLoop25Played,
+        isPlayed: isLoop26Played,
         id:'loop25',
         },
 
