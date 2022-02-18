@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 
 
-export default function gridButton ({isPlayed= false, soundPlay, id}) {
+export default function gridButton ({isPlayed= false, soundPlay, id,handleSampleChange}) {
   return (
     <Wrapper
      isPlayed = {isPlayed}
@@ -16,11 +16,14 @@ export default function gridButton ({isPlayed= false, soundPlay, id}) {
       <label
       onClick={(e)=>e.stopPropagation()}
        htmlFor={id}> 
-      🎉
+      🎶 
       </label>
       <input 
       onClick={(e)=>e.stopPropagation()}
-      id={id} type='file'/>
+      id={id} 
+      type='file'
+      onChange={handleSampleChange}
+      />
     </Wrapper>
 
   )

@@ -46,22 +46,22 @@ export default function UseSounds() {
         console.log(key);
 
         switch (key) {
-            case "a":
+            case "q":
             isLoop24PlayedChange(true);
             window.setTimeout(() => { isLoop24PlayedChange(false)}, 3000);
             soundPlay("C4")
             break;   
-            case "b":
+            case "w":
              isLoop25PlayedChange(true);   
              window.setTimeout(() => { isLoop25PlayedChange(false)}, 3000);
             soundPlay("D#4")
             break;  
-           case "c":
+           case "z":
             soundPlay("F#4")
             window.setTimeout(() => { isLoop26PlayedChange(false)}, 3000);
             isLoop26PlayedChange(true);
              break; 
-             case "d":
+             case "r":
              soundPlay("A4")
              window.setTimeout(() => { isLoop27PlayedChange(false)}, 3000);
              isLoop27PlayedChange(true)  
@@ -69,11 +69,11 @@ export default function UseSounds() {
             default:
                 
         }
-    } 
+     } 
 
-    function handleKeyDown ({key}) {
-       console.log(key)
-    }
+    // // function handleKeyDown ({key}) {
+    // //    console.log(key)
+    // }
     
     useEffect(()=> {
         window.addEventListener("keydown",handleKeyDown);
@@ -96,7 +96,7 @@ export default function UseSounds() {
          soundPlay: ()=> soundPlay("C4"),
          isPlayed: isLoop24Played,
          id: 'loop24',
-         
+         handleSampleChange: e=> handleSampleChange('C4',e.target.files[0])
         },    
 
         {
@@ -104,19 +104,25 @@ export default function UseSounds() {
          soundPlay: ()=> soundPlay("D#4"),
         isPlayed: isLoop25Played,
         id:'loop25',
+        handleSampleChange: e=> handleSampleChange('D#4',e.target.files[0])
+
 
         },    
 
         {
-        soundPlay: ()=> soundPlay("D#4"),
+        soundPlay: ()=> soundPlay("F#4"),
         isPlayed: isLoop26Played,
-        id:'loop25',
+        id:'loop26',
+        handleSampleChange: e=> handleSampleChange('F#4',e.target.files[0])
+
         },
 
         {
          soundPlay: ()=> soundPlay("A4"),
          isPlayed: isLoop27Played,
          id: 'loop27',
+         handleSampleChange: e=> handleSampleChange('A4',e.target.files[0])
+
         },  
 
       ]
