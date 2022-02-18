@@ -1,8 +1,27 @@
 import styled from 'styled-components';
 
-export default function gridButton ({isPlayed= false, soundPlay}) {
+
+
+
+
+
+export default function gridButton ({isPlayed= false, soundPlay, id}) {
   return (
-    <Wrapper isPlayed = {isPlayed} onClick={soundPlay}></Wrapper>
+    <Wrapper
+     isPlayed = {isPlayed}
+     onClick={soundPlay}
+     id={id}
+     >
+        
+      <label
+      onClick={(e)=>e.stopPropagation()}
+       htmlFor={id}> 
+      🎉
+      </label>
+      <input 
+      onClick={(e)=>e.stopPropagation()}
+      id={id} type='file'/>
+    </Wrapper>
 
   )
 }
@@ -44,7 +63,16 @@ background: radial-gradient
             rgba(255,170,167,1)0%,
             rgba(255,230,213,1)100%
             );
-    }
+      }
+      & input {
+        display:none;
+
+      }
+      & label {
+        position:absolute;
+        right: 12px;
+        top:12px;
+      }
 
 
     

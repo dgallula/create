@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef,useState  } from 'react';
 import * as Tone from 'tone';
 
 import Loop24 from "Sounds/Loop24.wav";
@@ -11,6 +11,14 @@ import Loop27 from "Sounds/Loop27.wav";
 export default function UseSounds() {
     // useRef 
     const mySampler = useRef(null);
+
+    // useState
+    const [isLoop24Played, isLoop24PlayedChange] = useState(false);
+    const [isLoop25Played, isLoop25PlayedChange] = useState(false);
+    const [isLoop26Played, isLoop26PlayedChange] = useState(false);
+    const [isLoop27Played, isLoop27PlayedChange] = useState(false);
+
+
 
     //  useEffect with empty dependency array. useEffect(()=>{},[ ])
     useEffect(()=> {
@@ -39,18 +47,25 @@ export default function UseSounds() {
 
         switch (key) {
             case "a":
+            isLoop24PlayedChange(true);
+            window.setTimeout(() => { isLoop24PlayedChange(false)}, 3000);
             soundPlay("C4")
             break;   
             case "b":
+             isLoop25PlayedChange(true);   
+             window.setTimeout(() => { isLoop25PlayedChange(false)}, 3000);
             soundPlay("D#4")
             break;  
-            case "c":
+           case "c":
             soundPlay("F#4")
+            window.setTimeout(() => { isLoop26PlayedChange(false)}, 3000);
+            isLoop26PlayedChange(true);
              break; 
              case "d":
              soundPlay("A4")
+             window.setTimeout(() => { isLoop27PlayedChange(false)}, 3000);
+             isLoop27PlayedChange(true)  
             break; 
-
             default:
                 
         }
@@ -74,20 +89,30 @@ export default function UseSounds() {
       [
          
         {
-            soundPlay: ()=> soundPlay("C4"),
+         soundPlay: ()=> soundPlay("C4"),
+         isPlayed: isLoop24Played,
+         id: 'loop24',
         },    
 
         {
-            soundPlay: ()=> soundPlay("D#4"),
+
+         soundPlay: ()=> soundPlay("D#4"),
+        isPlayed: isLoop25Played,
+        id:'loop25',
+
         },    
 
         {
-            soundPlay: ()=> soundPlay("F#4"),
-        },    
+        soundPlay: ()=> soundPlay("D#4"),
+        isPlayed: isLoop25Played,
+        id:'loop25',
+        },
 
         {
-            soundPlay: ()=> soundPlay("A4"),
-        },    
+         soundPlay: ()=> soundPlay("A4"),
+         isPlayed: isLoop27Played,
+         id: 'loop27',
+        },  
 
       ]
      
