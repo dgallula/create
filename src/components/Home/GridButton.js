@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 
-
-
-
-
 export default function gridButton ({isPlayed= false, soundPlay, id,handleSampleChange}) {
   return (
     <Wrapper
